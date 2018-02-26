@@ -9,6 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 
 public class mainController implements Initializable {
@@ -59,7 +60,8 @@ public class mainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        dataBegin.setValue(LocalDate.now());
+        dataEnd.setValue(LocalDate.now());
     }
 
     @FXML
