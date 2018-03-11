@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="454.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.controller.editController">
+   <children>
+      <JFXDatePicker fx:id="dataOrder" prefHeight="26.0" prefWidth="312.0">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </JFXDatePicker>
+      <JFXComboBox fx:id="sellerBox" prefHeight="26.0" prefWidth="310.0">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </JFXComboBox>
+      <JFXTextField fx:id="description" labelFloat="true" promptText="DESCRIPTION">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXTextField fx:id="quontity" labelFloat="true" layoutX="15.0" layoutY="92.0" promptText="QUONTITY">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXTextField fx:id="price" labelFloat="true" layoutX="15.0" layoutY="92.0" promptText="PRICE">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXTextField fx:id="rep_price" labelFloat="true" layoutX="15.0" layoutY="133.0" promptText="REPEARING PRICE">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <JFXTextField fx:id="my_price" labelFloat="true" layoutX="15.0" layoutY="174.0" promptText="MY PRICE">
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="10.0" />
+         </VBox.margin>
+      </JFXTextField>
+      <ButtonBar prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="addBtn" mnemonicParsing="false" onAction="#addBtnAction" text="ADD">
+               <graphic>
+                  <FontAwesomeIconView glyphName="PLUS_SQUARE" />
+               </graphic></Button>
+            <Button fx:id="canselBtn" layoutX="226.0" layoutY="17.0" mnemonicParsing="false" onAction="#canselBtnAction" text="CANSEL">
+               <graphic>
+                  <FontAwesomeIconView glyphName="WINDOWS_CLOSE" />
+               </graphic></Button>
+        </buttons>
+         <VBox.margin>
+            <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+         </VBox.margin>
+      </ButtonBar>
+   </children>
+</VBox>

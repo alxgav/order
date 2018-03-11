@@ -3,7 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import de.jensd.fx.glyphs.control.GlyphCheckBox?>
-<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import de.jensd.fx.glyphs.octicons.OctIconView?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TableColumn?>
@@ -12,7 +13,7 @@
 <?import javafx.scene.control.cell.PropertyValueFactory?>
 <?import javafx.scene.layout.BorderPane?>
 
-<BorderPane prefHeight="400" prefWidth="700" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.controller.mainController">
+<BorderPane prefHeight="400" prefWidth="700" stylesheets="@style/common.css" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="order.controller.mainController">
    <top>
       <ToolBar prefHeight="40.0" prefWidth="200.0" style="-fx-background-color: #bcc0c6;" BorderPane.alignment="CENTER">
          <items>
@@ -32,71 +33,77 @@
                      <center>
                         <TableView fx:id="orderTable" prefHeight="200.0" prefWidth="200.0" tableMenuButtonVisible="true" BorderPane.alignment="CENTER">
                           <columns>
-                            <TableColumn fx:id="bayerCell" maxWidth="120.0" minWidth="100.0" prefWidth="100.0" resizable="false" style="-fx-background-color: RED;" text="Поставщик">
+                            <TableColumn fx:id="bayerCell" maxWidth="120.0" minWidth="100.0" prefWidth="100.0" resizable="false" text="Поставщик">
                                   <cellValueFactory>
-                                      <PropertyValueFactory property="" />
+                                      <PropertyValueFactory property="bayer" />
                                   </cellValueFactory>
                             </TableColumn>
                             <TableColumn fx:id="DescriptionCell" maxWidth="200.0" prefWidth="180.0" resizable="false" text="Наименование">
                                 <cellValueFactory>
-                                    <PropertyValueFactory property="" />
+                                    <PropertyValueFactory property="description" />
                                 </cellValueFactory>
                             </TableColumn>
                             <TableColumn fx:id="stCell" maxWidth="50.0" minWidth="50.0" prefWidth="50.0" resizable="false" text="шт">
                                 <cellValueFactory>
-                                    <PropertyValueFactory property="" />
+                                    <PropertyValueFactory property="st" />
                                 </cellValueFactory>
                             </TableColumn>
-                              <TableColumn maxWidth="390.0" minWidth="390.0" prefWidth="390.0" resizable="false" style="-fx-background-color: RED;" text="ЦЕНА КПІ">
+                              <TableColumn maxWidth="390.0" minWidth="390.0" prefWidth="390.0" resizable="false" text="ЦЕНА КПІ">
 
                                  <columns>
                                   <TableColumn fx:id="priceCell" maxWidth="90.0" minWidth="90.0" prefWidth="75.0" resizable="false" text="Цена">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="" />
+                                          <PropertyValueFactory property="price" />
                                       </cellValueFactory>
                                   </TableColumn>
                                   <TableColumn fx:id="priceTotallCell" maxWidth="90.0" minWidth="90.0" prefWidth="90.0" text="Цена всего">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="" />
+                                          <PropertyValueFactory property="priceTotall" />
                                       </cellValueFactory>
                                   </TableColumn>
                                   <TableColumn fx:id="priceKPICell" minWidth="90.0" prefWidth="90.0" resizable="false" text="цена КПІ">
                                       <cellValueFactory>
-                                          <PropertyValueFactory property="" />
+                                          <PropertyValueFactory property="priceKPI" />
                                       </cellValueFactory>
                                   </TableColumn>
                                      <TableColumn fx:id="priceRepearCell" minWidth="120.0" prefWidth="120.0" resizable="false" text="Цена ремонта">
                                          <cellValueFactory>
-                                             <PropertyValueFactory property="" />
+                                             <PropertyValueFactory property="priceRepear" />
                                          </cellValueFactory>
                                      </TableColumn>
                                  </columns>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MONEY" />
+                                 </graphic>
                               </TableColumn>
                               <TableColumn fx:id="priceAllCell" minWidth="120.0" prefWidth="120.0" resizable="false" text="Цена">
                                   <cellValueFactory>
-                                      <PropertyValueFactory property="" />
+                                      <PropertyValueFactory property="priceAll" />
                                   </cellValueFactory>
                               </TableColumn>
 
                             <TableColumn fx:id="noteCell" minWidth="120.0" prefWidth="120.0" resizable="false" text="Примечание">
                                 <cellValueFactory>
-                                    <PropertyValueFactory property="" />
+                                    <PropertyValueFactory property="noteCell" />
                                 </cellValueFactory>
                             </TableColumn>
                               <TableColumn minWidth="0.0" prefWidth="74.0" resizable="false" text="Цена МОЯ">
 
                                  <columns>
-                                    <TableColumn fx:id="priceMainCell" minWidth="0.0" prefWidth="74.0" resizable="false" text="Цена">
+                                    <TableColumn fx:id="priceMainCell" minWidth="0.0" prefWidth="74.0" resizable="false" text="Цена" visible="false">
                                        <cellValueFactory>
-                                          <PropertyValueFactory property="" />
+                                          <PropertyValueFactory property="priceMain" />
                                        </cellValueFactory>
                                     </TableColumn>
-                                    <TableColumn fx:id="priceMargCell" minWidth="0.0" prefWidth="74.0" resizable="false" text="Маржа">
+                                    <TableColumn fx:id="priceMargCell" minWidth="0.0" prefWidth="74.0" resizable="false" text="Маржа" visible="false">
                                        <cellValueFactory>
-                                          <PropertyValueFactory property="" />
+                                          <PropertyValueFactory property="priceMarg" />
                                        </cellValueFactory>
                                     </TableColumn>
                                  </columns>
+                                 <graphic>
+                                    <FontAwesomeIconView glyphName="MONEY" />
+                                 </graphic>
                               </TableColumn>
                           </columns>
                         </TableView>
@@ -104,9 +111,19 @@
                      <top>
                         <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
                            <items>
-                              <JFXButton>
+                              <JFXButton fx:id="addOrder" onAction="#addOrderAction">
                                  <graphic>
-                                    <MaterialDesignIconView fill="#3b0dd3" glyphName="PLAYLIST_ADD" size="20" />
+                                    <OctIconView glyphName="DIFF_ADDED" size="24" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="editOrder" layoutX="10.0" layoutY="10.0" onAction="#editOrderAction">
+                                 <graphic>
+                                    <OctIconView glyphName="PENCIL" size="24" />
+                                 </graphic>
+                              </JFXButton>
+                              <JFXButton fx:id="deleteOrder" layoutX="101.0" layoutY="10.0" onAction="#deleteOrderAction">
+                                 <graphic>
+                                    <OctIconView glyphName="TRASHCAN" size="24" />
                                  </graphic>
                               </JFXButton>
                            </items>
@@ -127,9 +144,16 @@
       </TabPane>
    </center>
    <left>
-      <TableView prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
+      <TableView fx:id="dateTable" prefHeight="150.0" prefWidth="150.0" BorderPane.alignment="CENTER">
         <columns>
-          <TableColumn maxWidth="150.0" minWidth="150.0" prefWidth="150.0" resizable="false" text="ДАТА" />
+          <TableColumn fx:id="dateColumn" maxWidth="150.0" minWidth="150.0" prefWidth="150.0" resizable="false" text="ДАТА">
+               <graphic>
+                  <OctIconView glyphName="CALENDAR" size="24" />
+               </graphic>
+              <cellValueFactory>
+                  <PropertyValueFactory property="order_date" />
+              </cellValueFactory>
+          </TableColumn>
         </columns>
       </TableView>
    </left>
